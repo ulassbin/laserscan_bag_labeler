@@ -9,7 +9,7 @@ bagManager::bagManager()
 void bagManager::manage(std::string bag_name)
 {
   view_bag.open("/home/ulas/Desktop/bags/r200171362_test.bag");
-  write_bag.open("/home/ulas/Desktop/bags/r200171362_test_labeled.bag", rosbag::bagmode::Write);
+  write_bag.open("/home/ulas/Desktop/bags/r200171362_test_labeled.bag", rosbag::bagmode::Append);
 
   std::vector<std::string> topics;
 
