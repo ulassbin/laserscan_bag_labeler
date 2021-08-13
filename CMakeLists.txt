@@ -10,9 +10,12 @@ add_compile_options(-std=c++11)
 set(rosbag_labeler_ROS_DEPS
 	roscpp
 	rosbag
+  milvus_msgs
 	sensor_msgs
 	nav_msgs
 )
+
+find_package(Curses REQUIRED )
 
 find_package(catkin REQUIRED COMPONENTS
 	${rosbag_labeler_ROS_DEPS}
@@ -44,6 +47,7 @@ add_dependencies(rosbag_labeler
 
 target_link_libraries(rosbag_labeler
  ${catkin_LIBRARIES}
+ ${CURSES_LIBRARIES}
 )
 
 #############
