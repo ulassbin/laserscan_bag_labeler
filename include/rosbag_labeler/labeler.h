@@ -1,8 +1,9 @@
 #ifndef ROSBAG_LABELER_H_
 #define ROSBAG_LABELER_H_
 
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <stdio.h>
+#include <fstream>
 #include <ncurses.h>
 
 
@@ -19,6 +20,7 @@
 #include <boost/foreach.hpp>
 #define foreach BOOST_FOREACH
 
+using namespace std;
 class bagManager
 {
 public:
@@ -26,7 +28,8 @@ public:
   rosbag::Bag write_bag;
   
   bagManager();
-  void manage(std::string bag_name);
+  bool copyFile(std::string source, std::string dest);
+  void manage(std::string bag_name, std::string topic_name, std::string destination);
   ros::Publisher scan_pub_;
   ros::NodeHandle nh_;
 };
